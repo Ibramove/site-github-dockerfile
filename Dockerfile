@@ -1,3 +1,3 @@
-﻿FROM registry.redhat.io/ubi8/nginx-120:1-22
-COPY html/ /opt/app-root/src
+﻿FROM nginxinc/nginx-unprivileged:1.25
+COPY html/ /usr/share/nginx/html
 EXPOSE 8080
