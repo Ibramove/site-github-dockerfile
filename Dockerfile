@@ -1,10 +1,7 @@
-﻿# Dockerfile
-FROM nginxinc/nginx-unprivileged:1.25
+﻿FROM registry.access.redhat.com/ubi8/nginx-120:1-22   # ou nginx:1.22-ubi8 si ton registre est déjà configuré
 
-# Copie ton site
-COPY html/ /usr/share/nginx/html
+# Copier ton site
+COPY html/ /opt/app-root/src
 
-# L'image écoute déjà en 8080 (non privilégié)
+# L'image écoute déjà sur le port 8080 (non root)
 EXPOSE 8080
-
-# Pas besoin de USER: l'image est déjà non-root
